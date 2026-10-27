@@ -2,6 +2,17 @@ import {useState} from "react";
 
 function App() {
 
+    // 강사님 보강
+
+    // 리턴쪽 옵션이 반복되니까 배열을 만들어서 맵으로 출력
+    // 장점 배열에 첨삭하는 것으로 빠른 수정이 가능함
+    // const genres = ["액션", "코미디", "드라마", "SF", "공포"]
+
+    // 별점의 배열
+    // const ratings = ["5", "4", "3", "2", "1"]
+
+    // 초기값을 "드라마", "5"와 같이 특정 값으로 하기 보단 배열을 초기값으로 하는 게 유지보수에 용이함
+    // ex) 옵션의 "드라마" 없는 상태에서 초기값 "드라마"를 출력하는 건 오류!
     const [title, setTitle] = useState("");
     const [type, setType] = useState("드라마");
     const [rating, setRating] = useState("5");
@@ -20,13 +31,6 @@ function App() {
         setRating(Number(e.target.value));
     };
 
-    const newMovie = {
-        title: title,
-        type: type,
-        rating: rating,
-        completed: false,
-    }
-
     const handleCheckMovie = (index) => {
         const watchingList = list.map((item, i) => {
             if (i !== index) {
@@ -40,9 +44,20 @@ function App() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // 1. 저장하지 말아야 되는 상황에 대한 정리가 선행되어야 함
+
+
+        // 연결할 타이틀을 .트림이 선언된 대상으로 했으면 좋았을 듯
         if (!title.trim()) {
             setTitle("");
             return;
+        }
+
+        const newMovie = {
+            title: title,       // key와 value의 스펠링이 같으면 생략 가능
+            type,               // 둘의 스펠링이 같으니 생략된 것
+            rating: rating,
+            completed: false,   // 키와 밸류가 다르니 구분해줘야 함
         }
 
         setList([newMovie, ...list]);
@@ -58,14 +73,6 @@ function App() {
     }
 
     const completed = list.filter((item) => item.completed).length;
-
-    // 강사님 보강
-
-    // 리턴쪽 옵션이 반복되니까 배열을 만들어서 맵으로 출력
-    // 장점 배열에 첨삭하는 것으로 빠른 수정이 가능함
-    // const genres = ["액션", "코미디", "드라마", "SF", "공포"]
-
-    // const ratings = [1, 2, 3, 4, 5]
 
 
 
