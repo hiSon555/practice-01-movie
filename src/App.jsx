@@ -4,7 +4,7 @@ function App() {
 
     const [title, setTitle] = useState("");
     const [type, setType] = useState("드라마");
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState("5");
     const [list, setList] = useState([]);
 
 
@@ -49,7 +49,7 @@ function App() {
 
         setTitle("");
         setType("드라마");
-        setRating(5);
+        setRating("5");
     }
 
     const handleDelete = (index) => {
@@ -58,6 +58,15 @@ function App() {
     }
 
     const completed = list.filter((item) => item.completed).length;
+
+    // 강사님 보강
+
+    // 리턴쪽 옵션이 반복되니까 배열을 만들어서 맵으로 출력
+    // 장점 배열에 첨삭하는 것으로 빠른 수정이 가능함
+    // const genres = ["액션", "코미디", "드라마", "SF", "공포"]
+
+    // const ratings = [1, 2, 3, 4, 5]
+
 
 
     return (
@@ -68,6 +77,9 @@ function App() {
                 <form onSubmit={handleSubmit}>
                     <input placeholder={"영화 제목"} onChange={handleChangeTitle} value={title}/>
                     <select onChange={handleChangeType} value={type}>
+                        {/* 장르스라 선언했으니 뽑아먹으면 끝*/}
+                        {/* {genres.map((item, index) => {
+                         return <options key={index}>{item}</options>}*/}
                         <option>드라마</option>
                         <option>액션</option>
                         <option>SF</option>
@@ -75,6 +87,10 @@ function App() {
                         <option>공포</option>
                     </select>
                     <select onChange={handleChangeRating} value={rating}>
+                        {/* 여기도 별점을 뜻하는 래이팅스에 맵 함수를 돌리면 좋음*/}
+                        {/* {ratings.map((item, index) => {
+                            return <option keu={index} value={item}>별점 {item}점</option>
+                            })}*/}
                         <option value="5">별점 5점</option>
                         <option value="4">별점 4점</option>
                         <option value="3">별점 3점</option>
@@ -117,6 +133,9 @@ function App() {
                                     .reduce((acc, star) => acc + star, "")}
                             </div>
                             <div>
+                                {/* <label>
+                                    <input/> div가 아니라 label로 묶었으면 좋았을 듯
+                                    </label>*/}
                             <input type={"checkbox"} checked={item.completed} onChange={() => {
                                 handleCheckMovie(index)
                             }}/>감상 완료
