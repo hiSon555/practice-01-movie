@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 890px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 16px;
+    background-color: #FCEEEF;
+    gap: 20px;
+
+}
+
+.container h2 {
+    color: #493B48;
+}
+
+.fieldset {
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+
+.legend {
+    padding-bottom: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #493B48;
+}
+
+.form {
+    display: flex;
+    gap: 5px;
+}
+
+.movieInput {
+}
+
+h3 {
+    color: #5C4856;
+}
+
+.movieList {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: #FCEEEF;
+}
+
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 200px;
+    height: 150px;
+    padding: 4px 12px;
+    border: 1px solid #B96B78;
+    border-radius: 12px;
+    background-color: white;
+
+}
+
+.movieTitle {
+    font-weight: bold;
+    font-size: 18px;
+    color: #5C4856;
+}
+
+.movieGenre {
+    color: #5C4856;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.starIcon {
+    color: #B96B78;
+    margin-bottom: 2px;
+}
+
+.cpBox {
+    font-size: 14px;
+    display: flex;
+    gap: 4px;
+}
+
+.completed {
+    opacity: 0.6;
+/*    완료시 투명도 시간이 없네 */
+}
+
+.del {
+    display: flex;
+    justify-content: right;
+}
+
+.deleteButton {
+    border: none;
+    border-radius: 20px;
+    padding: 3px 8px;
+    color: white;
+    background-color: #B96B78;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #5C4856;
+}
