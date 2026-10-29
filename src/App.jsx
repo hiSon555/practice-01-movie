@@ -122,7 +122,6 @@ function App() {
             <div className={styles.movieList}>
                 {list.map((item, index) => {
                     // 여기에 if문을 걸 수 있음
-
                     return (
                         <div
                             key={index}
